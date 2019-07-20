@@ -14,6 +14,7 @@ extension ViewController {
     
     @IBAction func connectToDevice() {
         if isConnected && session != nil {
+            stopListeningForGestures()
             session.close()
             session = nil
             isConnected = false
@@ -48,6 +49,8 @@ extension ViewController {
         token = device.addEventListener(queue: .main) { [weak self] event in
             self?.wearableDeviceEvent(event)
         }
+        
+        listenForGestures()
     }
     
     private func wearableDeviceEvent(_ event: WearableDeviceEvent) {
@@ -62,6 +65,18 @@ extension ViewController {
 
         default:
             break
+        }
+    }
+    
+    private func listenForGestures() {
+        device.configureGestures { config in
+            config.enableAll()
+        }
+    }
+    
+    private func stopListeningForGestures() {
+        device.configureGestures { config in
+            config.disableAll()
         }
     }
     
@@ -99,7 +114,7 @@ extension ViewController {
 extension ViewController: SensorDispatchHandler {
     /// Indicates that an accelerometer reading has been received.
     internal func receivedAccelerometer(vector: Vector, accuracy: VectorAccuracy, timestamp: SensorTimestamp) {
-        print("Acc: \(vector)")
+        //print("Acc: \(vector)")
     }
     
     /// Indicates that a gyroscope reading has been received.
@@ -115,6 +130,14 @@ extension ViewController: SensorDispatchHandler {
     /// Indicates that a game rotation reading has been received.
     func receivedGameRotation(quaternion: Quaternion, timestamp: SensorTimestamp) {
         
+    }
+    
+    /// Indicates that a gesture has been received.
+    func receivedGesture(type: GestureType, timestamp: SensorTimestamp) {
+        print("Gesture: \(type)")
+        if type == .input {
+            recordButtonTapped()
+        }
     }
 }
 
