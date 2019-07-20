@@ -47,7 +47,7 @@ class StatisticsViewController: UIViewController {
             case Metric.speakingRate:
                 let val = Double(totalWords!) / duration!
                 overallScore += Double(pow(((val) - 150), 2) / 5)
-                speakingRateScoreText.text = "\(val)"
+                speakingRateScoreText.text = "\(floor(600 * val) / 10)"
             case Metric.headLevel:
                 overallScore += Double((metricValue ?? 0))
                 headLevelScoreText.text = "\(metricValue ?? -1)"
@@ -63,7 +63,7 @@ class StatisticsViewController: UIViewController {
         
         wordCountText.text = "\(totalWords ?? 0)"
         
-        overallScore = Double(round(100*overallScore)/10000)
+        overallScore = Double(round(overallScore)/100)
         overallScoreText.text = "\(overallScore)"
         
     }

@@ -104,7 +104,7 @@ class CaptureManager: NSObject {
     }
     
     func beep() {
-        vc?.playAudio(filename: "center_beep")
+        vc?.playAudio(filename: "Button-beep-tone")
     }
     
     func alert(_ metric: Metric, statistic: Statistic) {
