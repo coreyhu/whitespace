@@ -145,7 +145,6 @@ extension ViewController: SensorDispatchHandler {
         print("Gesture: \(type)")
         if type == .input {
             recordButtonTapped()
-            playAudio(filename: "ooga_booga")
         }
     }
 }

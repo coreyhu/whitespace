@@ -56,6 +56,9 @@ class ViewController: UIViewController {
             if isRecording {
                 manager.clearAll()
                 blacklistCount = 0
+                alert(text: "Recording")
+            } else {
+                alert(text: "Stopped Recording")
             }
         }
     }

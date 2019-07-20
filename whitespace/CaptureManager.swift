@@ -86,7 +86,7 @@ class CaptureManager: NSObject {
     
     func beep() {
         print("Beep")
-        vc?.playAudio(filename: "ooga_booga")
+        vc?.playAudio(filename: "center_beep")
     }
     
     func alert(_ metric: Metric, statistic: Statistic) {
