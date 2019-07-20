@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet var recordButton : UIButton!
     @IBOutlet weak var connectButton: UIButton!
     
+    var enabledMetrics: [Metric] = []
+    
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
     let samplePeriod: SamplePeriod = ._20ms
     
@@ -44,6 +46,14 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func recordButtonTapped() {
+        if isConnected {
+            isRecording = !isRecording
+            toggleSensors()
+            toggleRecording()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -52,11 +62,10 @@ class ViewController: UIViewController {
         isConnected = false
     }
     
-    @IBAction func recordButtonTapped() {
-        if isConnected {
-            isRecording = !isRecording
-            toggleSensors()
-            toggleRecording()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SettingsSegue" {
+            let settingsVC = segue.destination as? SettingsViewController
+            settingsVC?.vc = self
         }
     }
 }
