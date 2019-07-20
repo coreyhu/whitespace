@@ -10,15 +10,18 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
     
-    @IBOutlet var speakingRateScoreText : UITextField!
-    @IBOutlet var headLevelScoreText : UITextField!
-    @IBOutlet var blacklistScoreText : UITextField!
+    @IBOutlet var speakingRateScoreText : UILabel!
+    @IBOutlet var headLevelScoreText : UILabel!
+    @IBOutlet var blacklistScoreText : UILabel!
     
-    @IBOutlet var overallScoreText : UITextField!
+    @IBOutlet var overallScoreText : UILabel!
     
     let metrics = [Metric.headLevel, Metric.speakingRate]
     var vc: ViewController?
     
+    @IBAction func back() {
+        navigationController?.popViewController(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
