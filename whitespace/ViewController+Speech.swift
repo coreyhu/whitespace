@@ -81,6 +81,7 @@ extension ViewController: SFSpeechRecognizerDelegate {
                     count += text.components(separatedBy: phrase).count - 1
                 }
                 if count > self.blacklistCount {
+                    self.manager.addSample(1, To: .blacklistRate)
                     self.manager.beep()
                 }
                 self.blacklistCount = count

@@ -11,22 +11,26 @@ import AVFoundation
 
 class Statistic: NSObject {
     
+    var allSamples: [Any]
     var samples: [Any]
     var captureLength: Int
     var threshold: Float
     
     init(len: Int, th: Float) {
         samples = []
+        allSamples = []
         captureLength = len
         threshold = th
     }
     
     func clearSamples() {
         samples = []
+        allSamples = []
     }
     
     func addSample(sample: Any) {
         samples.append(sample)
+        allSamples.append(sample)
         if samples.count > captureLength {
             samples.removeFirst()
         }
@@ -43,6 +47,7 @@ class Statistic: NSObject {
     
     func clear() {
         samples = []
+        allSamples = []
     }
 }
 

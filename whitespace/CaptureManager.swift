@@ -13,6 +13,7 @@ import AVFoundation
 enum Metric {
     case speakingRate
     case headLevel
+    case blacklistRate
     case none
     
     func toString() -> String {
@@ -21,6 +22,8 @@ enum Metric {
             return "Speaking Rate"
         case .headLevel:
             return "Head Level"
+        case .blacklistRate:
+            return "Blacklist Rate"
         default:
             return "Unknown"
         }
@@ -32,6 +35,8 @@ enum Metric {
             return MeanFloatStatistic(len: 100, th: 150)
         case .headLevel:
             return MeanFloatStatistic(len: 100, th: 0.4)
+        case .blacklistRate:
+            return MeanFloatStatistic(len: 0, th: 1)
         default:
             return MeanFloatStatistic(len: 0, th: 1)
         }
@@ -42,6 +47,8 @@ enum Metric {
         case .speakingRate:
             return 0
         case .headLevel:
+            return 0
+        case .blacklistRate:
             return 0
         default:
             return 0
