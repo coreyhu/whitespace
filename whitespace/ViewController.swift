@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var scene : SCNView!
-    let audioSource = SCNAudioSource(fileNamed: "ooga_booga.m4a")!
+    let audioSource = SCNAudioSource(fileNamed: "ooga_booga.mp3")!
     var actionSequence : SCNAction!
     let node = SCNNode()
     

@@ -16,6 +16,7 @@
 		0FDA320222E2FB5D00CD730A /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDA320122E2FB5D00CD730A /* CaptureManager.swift */; };
 		0FDA320422E2FE0200CD730A /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDA320322E2FE0200CD730A /* Statistic.swift */; };
 		1326138522E2EAA900DA05AB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326138422E2EAA900DA05AB /* SettingsViewController.swift */; };
+		1326138D22E32EDF00DA05AB /* ooga_booga.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1326138C22E32EDF00DA05AB /* ooga_booga.mp3 */; };
 		13E3CF0322E2B3DB00CBD6D6 /* ViewController+Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */; };
 		13E3CF0522E2B3FB00CBD6D6 /* ViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */; };
 		F946131F016DD5A53BE6C4D9 /* Pods_whitespace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177548B9C31C0DA9E6818AC3 /* Pods_whitespace.framework */; };
@@ -46,6 +47,7 @@
 		0FDA320122E2FB5D00CD730A /* CaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
 		0FDA320322E2FE0200CD730A /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		1326138422E2EAA900DA05AB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1326138C22E32EDF00DA05AB /* ooga_booga.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ooga_booga.mp3; sourceTree = "<group>"; };
 		13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Speech.swift"; sourceTree = "<group>"; };
 		13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Position.swift"; sourceTree = "<group>"; };
 		177548B9C31C0DA9E6818AC3 /* Pods_whitespace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whitespace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			children = (
 				0F0DA5F622E29C650060EAED /* AppDelegate.swift */,
 				0F0DA5F822E29C650060EAED /* ViewController.swift */,
+				1326138C22E32EDF00DA05AB /* ooga_booga.mp3 */,
 				13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */,
 				13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */,
 				0FDA320122E2FB5D00CD730A /* CaptureManager.swift */,
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0DA60122E29C660060EAED /* LaunchScreen.storyboard in Resources */,
+				1326138D22E32EDF00DA05AB /* ooga_booga.mp3 in Resources */,
 				0F0DA5FE22E29C660060EAED /* Assets.xcassets in Resources */,
 				0F0DA5FC22E29C650060EAED /* Main.storyboard in Resources */,
 			);
