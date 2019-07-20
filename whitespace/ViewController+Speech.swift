@@ -105,7 +105,9 @@ extension ViewController: SFSpeechRecognizerDelegate {
                 isFinal = result.isFinal
             }
             
-            if error != nil || isFinal {
+            if error != nil {
+                print("Speech error: \(error!)")
+                
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
                 
