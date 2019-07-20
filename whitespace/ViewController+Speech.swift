@@ -83,9 +83,11 @@ extension ViewController: SFSpeechRecognizerDelegate {
                     let now = Date()
                     let delta = newWordCount - self.wordCount
                     let wpm = Float(delta) / Float(now.timeIntervalSince(self.lastTextUpdate)) * 60
-                    self.manager.addSample(wpm, To: .speakingRate)
-                    self.wordCount = newWordCount
-                    self.lastTextUpdate = now
+                    if wpm > 0 && wpm < 300 {
+                        self.manager.addSample(wpm, To: .speakingRate)
+                        self.wordCount = newWordCount
+                        self.lastTextUpdate = now
+                    }
                 }
                 
                 var count = 0
