@@ -13,6 +13,8 @@
 		0F0DA5FE22E29C660060EAED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F0DA5FD22E29C660060EAED /* Assets.xcassets */; };
 		0F0DA60122E29C660060EAED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0DA5FF22E29C660060EAED /* LaunchScreen.storyboard */; };
 		0F0DA60C22E29C670060EAED /* whitespaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0DA60B22E29C670060EAED /* whitespaceTests.swift */; };
+		0FDA320222E2FB5D00CD730A /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDA320122E2FB5D00CD730A /* CaptureManager.swift */; };
+		0FDA320422E2FE0200CD730A /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDA320322E2FE0200CD730A /* Statistic.swift */; };
 		1326138522E2EAA900DA05AB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326138422E2EAA900DA05AB /* SettingsViewController.swift */; };
 		13E3CF0322E2B3DB00CBD6D6 /* ViewController+Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */; };
 		13E3CF0522E2B3FB00CBD6D6 /* ViewController+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */; };
@@ -41,6 +43,8 @@
 		0F0DA60722E29C670060EAED /* whitespaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = whitespaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F0DA60B22E29C670060EAED /* whitespaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = whitespaceTests.swift; sourceTree = "<group>"; };
 		0F0DA60D22E29C670060EAED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FDA320122E2FB5D00CD730A /* CaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
+		0FDA320322E2FE0200CD730A /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		1326138422E2EAA900DA05AB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Speech.swift"; sourceTree = "<group>"; };
 		13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Position.swift"; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				0F0DA5F822E29C650060EAED /* ViewController.swift */,
 				13E3CF0422E2B3FB00CBD6D6 /* ViewController+Position.swift */,
 				13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */,
+				0FDA320122E2FB5D00CD730A /* CaptureManager.swift */,
+				0FDA320322E2FE0200CD730A /* Statistic.swift */,
 				1326138422E2EAA900DA05AB /* SettingsViewController.swift */,
 				0F0DA5FA22E29C650060EAED /* Main.storyboard */,
 				0F0DA5FD22E29C660060EAED /* Assets.xcassets */,
@@ -276,9 +282,11 @@
 			files = (
 				0F0DA5F922E29C650060EAED /* ViewController.swift in Sources */,
 				0F0DA5F722E29C650060EAED /* AppDelegate.swift in Sources */,
+				0FDA320222E2FB5D00CD730A /* CaptureManager.swift in Sources */,
 				13E3CF0322E2B3DB00CBD6D6 /* ViewController+Speech.swift in Sources */,
 				1326138522E2EAA900DA05AB /* SettingsViewController.swift in Sources */,
 				13E3CF0522E2B3FB00CBD6D6 /* ViewController+Position.swift in Sources */,
+				0FDA320422E2FE0200CD730A /* Statistic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQWRCM7U27;
+				DEVELOPMENT_TEAM = 9QWEKFJE85;
 				INFOPLIST_FILE = whitespace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CQWRCM7U27;
+				DEVELOPMENT_TEAM = 9QWEKFJE85;
 				INFOPLIST_FILE = whitespace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

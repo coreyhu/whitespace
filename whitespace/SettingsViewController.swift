@@ -8,20 +8,6 @@
 
 import UIKit
 
-enum Metric {
-    case speakingRate
-    case headLevel
-    
-    func toString() -> String {
-        switch self {
-        case .speakingRate:
-            return "Speaking Rate"
-        default:
-            return "Head Level"
-        }
-    }
-}
-
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!

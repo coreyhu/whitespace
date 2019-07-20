@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import simd
 import UIKit
 import BoseWearable
 
@@ -124,7 +125,14 @@ extension ViewController: SensorDispatchHandler {
     
     /// Indicates that a rotation reading has been received.
     func receivedRotation(quaternion: Quaternion, accuracy: QuaternionAccuracy, timestamp: SensorTimestamp) {
-        
+        if isRecording {
+            // .headLevel
+            let qMap = Quaternion(ix: 1, iy: 0, iz: 0, r: 0)
+            let q = quaternion * qMap
+            let pitch = q.xRotation
+            let target = Metric.headLevel.target as? Double ?? 0
+            manager.addSample(Float(abs(pitch - target)), To: .headLevel)
+        }
     }
     
     /// Indicates that a game rotation reading has been received.

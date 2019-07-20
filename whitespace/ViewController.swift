@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
     let samplePeriod: SamplePeriod = ._20ms
     
+    var manager: CaptureManager!
+    
     var session: (WearableDeviceSession)!
     var device: WearableDevice!
     
@@ -37,7 +39,11 @@ class ViewController: UIViewController {
     public var recognitionTask: SFSpeechRecognitionTask?
     public let audioEngine = AVAudioEngine()
     
-    var isRecording = false
+    var isRecording = false {
+        didSet {
+            self.navigationItem.rightBarButtonItem?.isEnabled = !isRecording
+        }
+    }
     
     var isConnected = false {
         didSet {
@@ -60,6 +66,10 @@ class ViewController: UIViewController {
         
         isRecording = false
         isConnected = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        manager = CaptureManager(metrics: enabledMetrics)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

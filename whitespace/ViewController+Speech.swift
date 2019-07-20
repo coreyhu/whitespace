@@ -63,9 +63,12 @@ extension ViewController: SFSpeechRecognizerDelegate {
         try audioSession.setActive(true)
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        recognitionRequest?.contextualStrings = ["Ummm", "Uhhh", "Umm uhh", "uhm", "ahh", "Ooga Booga"]
         
         let inputNode = audioEngine.inputNode
-        guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object")
+        }
         
         // Configure request so that results are returned before audio recording is finished
         recognitionRequest.shouldReportPartialResults = true
