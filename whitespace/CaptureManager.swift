@@ -36,11 +36,11 @@ enum Metric {
     func statistic() -> Statistic {
         switch self {
         case .speakingRate:
-            return MeanFloatStatistic(len: 100, th: 150)
+            return MeanFloatStatistic(len: 100, th: 130)
         case .headLevel:
             return MeanFloatStatistic(len: 100, th: 0.4)
         case .sway:
-            return MeanFloatStatistic(len: 500, th: 1)
+            return MeanFloatStatistic(len: 500, th: 0.9)
         case .blacklistRate:
             return MeanFloatStatistic(len: 0, th: 1)
         default:
@@ -55,7 +55,7 @@ enum Metric {
         case .headLevel:
             return 0
         case .sway:
-            return Vector(0, 0, 0)
+            return Vector(0, 0, -1)
         case .blacklistRate:
             return 0
         default:
