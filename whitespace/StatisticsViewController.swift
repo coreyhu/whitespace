@@ -42,7 +42,7 @@ class StatisticsViewController: UIViewController {
             
             switch key {
             case Metric.speakingRate:
-                overallScore += Double(((metricValue ?? 0) - 150) / 5)
+                overallScore += Double(pow(((metricValue ?? 0) - 150), 2) / 5)
                 speakingRateScoreText.text = "\(metricValue ?? -1)"
             case Metric.headLevel:
                 overallScore += Double((metricValue ?? 0))
