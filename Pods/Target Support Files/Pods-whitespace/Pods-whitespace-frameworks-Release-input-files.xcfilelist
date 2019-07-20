@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-whitespace/Pods-whitespace-frameworks.sh
+${PODS_ROOT}/../BosePods/Frameworks/iOS/BLECore.framework
+${PODS_ROOT}/../BosePods/Frameworks/iOS/BoseWearable.framework
+${PODS_ROOT}/../BosePods/Frameworks/iOS/Logging.framework
+${BUILT_PRODUCTS_DIR}/WorldMagneticModel/WorldMagneticModel.framework

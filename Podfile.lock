@@ -1,0 +1,36 @@
+PODS:
+  - BLECore (4.0.8):
+    - Logging (= 4.0.8)
+  - BoseWearable (4.0.8):
+    - BLECore (= 4.0.8)
+    - Logging (= 4.0.8)
+  - Logging (4.0.8)
+  - WorldMagneticModel (1.0.5)
+
+DEPENDENCIES:
+  - BLECore (from `BosePods/`)
+  - BoseWearable (from `BosePods/`)
+  - Logging (from `BosePods/`)
+  - WorldMagneticModel (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - WorldMagneticModel
+
+EXTERNAL SOURCES:
+  BLECore:
+    :path: BosePods/
+  BoseWearable:
+    :path: BosePods/
+  Logging:
+    :path: BosePods/
+
+SPEC CHECKSUMS:
+  BLECore: 0b3794bf03a1aeb7c5e1c6c8be05195608a48a69
+  BoseWearable: db74c2620b61d4c380061cda9ed82a64f5a766f7
+  Logging: 1056b6c8f3fb71a468315a7f41ca9326f22cc022
+  WorldMagneticModel: 9356254b4d91bfa6ebb035ed4fad618b02dd00dd
+
+PODFILE CHECKSUM: 28da0204240363ece51824f439c0f2a5103b8c5d
+
+COCOAPODS: 1.7.4
