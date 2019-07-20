@@ -31,6 +31,10 @@ class ViewController: UIViewController {
     var session: (WearableDeviceSession)!
     var device: WearableDevice!
     
+    var startTime : Date
+    var endTime : Date
+    
+    
     var audioPlayer: AVAudioPlayer?
     
     // We create the SensorDispatch without any reference to a session or a device.
@@ -96,7 +100,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        isRecording = false
+        //isRecording = false
         isConnected = false
     }
     

@@ -71,7 +71,7 @@
                         <outlet property="connectButton" destination="nIg-BG-Vsj" id="M5B-GL-1ZQ"/>
                         <outlet property="recordButton" destination="4UJ-OE-ZYF" id="ifN-Pp-Lvd"/>
                         <outlet property="textView" destination="7Xh-Gq-OPS" id="iGV-Hr-ZGD"/>
-                        <segue destination="z86-dg-6Rl" kind="show" identifier="StatsSegue" id="s13-9c-vTY"/>
+                        <segue destination="z86-dg-6Rl" kind="show" identifier="SummarySegue" id="s13-9c-vTY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
