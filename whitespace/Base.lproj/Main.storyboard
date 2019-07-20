@@ -43,6 +43,10 @@
                                     <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDT-mD-33e"/>
                                 </connections>
                             </button>
+                            <sceneKitView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-c1-gKN">
+                                <rect key="frame" x="97" y="362" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -67,6 +71,7 @@
                     <connections>
                         <outlet property="connectButton" destination="nIg-BG-Vsj" id="M5B-GL-1ZQ"/>
                         <outlet property="recordButton" destination="4UJ-OE-ZYF" id="ifN-Pp-Lvd"/>
+                        <outlet property="scene" destination="BeJ-c1-gKN" id="PyH-cC-sjy"/>
                         <outlet property="textView" destination="7Xh-Gq-OPS" id="iGV-Hr-ZGD"/>
                         <segue destination="z86-dg-6Rl" kind="show" identifier="StatsSegue" id="s13-9c-vTY"/>
                     </connections>

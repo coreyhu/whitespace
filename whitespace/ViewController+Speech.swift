@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Speech
+import SceneKit
 
 extension ViewController: SFSpeechRecognizerDelegate {
     
@@ -125,7 +126,17 @@ extension ViewController: SFSpeechRecognizerDelegate {
             recordButton.setTitle("Stopping", for: .disabled)
         } else {
             try! startAudioRecording()
+            toggleAudioNotification()
             recordButton.setTitle("Stop recording", for: [])
+        }
+    }
+    
+    func toggleAudioNotification() {
+        if node.hasActions {
+            node.removeAllActions()
+        } else {
+            node.position = SCNVector3(0, 0, -0.5)
+            node.runAction(actionSequence)
         }
     }
 }

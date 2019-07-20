@@ -9,6 +9,8 @@
 import UIKit
 import Speech
 import BoseWearable
+import SceneKit
+import SpriteKit
 
 class ViewController: UIViewController {
     
@@ -45,6 +47,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBOutlet var scene : SCNView!
+    let audioSource = SCNAudioSource(fileNamed: "ooga_booga.m4a")!
+    var actionSequence : SCNAction!
+    let node = SCNNode()
+    
+    
     var isConnected = false {
         didSet {
             connectButton.setTitle(isConnected ? "Disconnect" : "Connect", for: [])
@@ -66,6 +74,32 @@ class ViewController: UIViewController {
         
         isRecording = false
         isConnected = false
+        
+        audioSource.isPositional = true
+        audioSource.load()
+        
+        
+        let playAudio = SCNAction.playAudio(audioSource, waitForCompletion: true)
+        let waitActionLong = SCNAction.wait(duration: 45)
+        let waitActionShort = SCNAction.wait(duration: 20)
+        let moveLeft = SCNAction.move(to: SCNVector3(-100, 0, -100), duration: 2)
+        let moveMiddle = SCNAction.move(to: SCNVector3(0, 0, -100), duration: 5)
+        let moveRight = SCNAction.move(to: SCNVector3(100, 0, -100), duration: 2)
+        let sequence = SCNAction.sequence([moveMiddle,
+                                           playAudio,
+                                           waitActionLong,
+                                           moveLeft,
+                                           playAudio,
+                                           waitActionShort,
+                                           moveMiddle,
+                                           playAudio,
+                                           waitActionLong,
+                                           moveRight,
+                                           playAudio,
+                                           waitActionShort])
+        let repeatForever = SCNAction.repeatForever(sequence)
+        actionSequence = repeatForever
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
