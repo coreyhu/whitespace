@@ -125,8 +125,8 @@ extension ViewController: SFSpeechRecognizerDelegate {
             recordButton.isEnabled = false
             recordButton.setTitle("Stopping", for: .disabled)
         } else {
-            try! startAudioRecording()
             toggleAudioNotification()
+            try! startAudioRecording()
             recordButton.setTitle("Stop recording", for: [])
         }
     }
@@ -135,8 +135,9 @@ extension ViewController: SFSpeechRecognizerDelegate {
         if node.hasActions {
             node.removeAllActions()
         } else {
-            node.position = SCNVector3(0, 0, -0.5)
+            node.position = SCNVector3(0, 0, 0)
             node.runAction(actionSequence)
+            print("Should have ran") 
         }
     }
 }
