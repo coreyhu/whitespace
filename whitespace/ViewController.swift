@@ -42,6 +42,9 @@ class ViewController: UIViewController {
     var isRecording = false {
         didSet {
             self.navigationItem.rightBarButtonItem?.isEnabled = !isRecording
+            if isRecording {
+                manager.clearAll()
+            }
         }
     }
     
@@ -63,6 +66,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
         
         isRecording = false
         isConnected = false

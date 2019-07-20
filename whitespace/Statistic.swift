@@ -21,6 +21,10 @@ class Statistic: NSObject {
         threshold = th
     }
     
+    func clearSamples() {
+        samples = []
+    }
+    
     func addSample(sample: Any) {
         samples.append(sample)
         if samples.count > captureLength {

@@ -65,6 +65,14 @@ class CaptureManager: NSObject {
         lastAlert = Date()
     }
     
+    func clearAll() {
+        for (_, statistic) in statistics {
+            statistic.clearSamples()
+        }
+        
+        lastAlert = Date()
+    }
+    
     func addSample(_ sample: Any, To metric: Metric) {
         let statistic = statistics[metric]
         statistic?.addSample(sample: sample)
@@ -84,9 +92,10 @@ class CaptureManager: NSObject {
     }
     
     func playMessage(text: String) {
+        let synth = AVSpeechSynthesizer()
+        synth.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        let synth = AVSpeechSynthesizer()
         synth.speak(utterance)
     }
     

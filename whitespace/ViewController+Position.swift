@@ -154,15 +154,18 @@ extension ViewController: WearableDeviceSessionDelegate {
         // This view controller is only shown after the session has successfully
         // opened. It is dismissed when the session closes. We don't need to do
         // anything here.
+        print("Session opened")
     }
     
     func session(_ session: WearableDeviceSession, didFailToOpenWithError error: Error?) {
         // This view controller is only shown after the session has successfully
         // opened. It is dismissed when the session closes. We don't need to do
         // anything here.
+        print("Session failed to open")
     }
     
     func session(_ session: WearableDeviceSession, didCloseWithError error: Error?) {
         // The session was closed, possibly due to an error.
+        print("Session closed")
     }
 }
