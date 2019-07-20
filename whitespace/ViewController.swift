@@ -86,16 +86,19 @@ class ViewController: UIViewController {
         isConnected = false
         
         audioSource.isPositional = true
+        audioSource.volume = 10
         audioSource.load()
         
-        
         let playAudio = SCNAction.playAudio(audioSource, waitForCompletion: true)
+        
         let waitActionLong = SCNAction.wait(duration: 45)
         let waitActionShort = SCNAction.wait(duration: 20)
-        let moveLeft = SCNAction.move(to: SCNVector3(-100, 0, -100), duration: 2)
-        let moveMiddle = SCNAction.move(to: SCNVector3(0, 0, -100), duration: 5)
-        let moveRight = SCNAction.move(to: SCNVector3(100, 0, -100), duration: 2)
-        let sequence = SCNAction.sequence([moveMiddle,
+        let moveLeft = SCNAction.move(to: SCNVector3(-1, 0, -1), duration: 2)
+        let moveMiddle = SCNAction.move(to: SCNVector3(0, 0, -1), duration: 5)
+        let moveRight = SCNAction.move(to: SCNVector3(1, 0, -1), duration: 2)
+        let sequence = SCNAction.sequence([playAudio,
+                                           playAudio,
+                                           moveMiddle,
                                            playAudio,
                                            waitActionLong,
                                            moveLeft,

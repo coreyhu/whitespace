@@ -22,7 +22,7 @@
                                 <rect key="frame" x="20" y="138" width="374" height="600"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -43,9 +43,8 @@
                                     <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDT-mD-33e"/>
                                 </connections>
                             </button>
-                            <sceneKitView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-c1-gKN">
-                                <rect key="frame" x="97" y="362" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-c1-gKN">
+                                <rect key="frame" x="87" y="531" width="240" height="128"/>
                             </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -53,10 +52,13 @@
                             <constraint firstItem="4UJ-OE-ZYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="5En-TB-wV3"/>
                             <constraint firstItem="nIg-BG-Vsj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9WW-0a-DHZ"/>
                             <constraint firstItem="nIg-BG-Vsj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="144" id="FXS-Hc-70e"/>
+                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="top" secondItem="BeJ-c1-gKN" secondAttribute="bottom" constant="116" id="T2q-Sx-Uxt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nIg-BG-Vsj" secondAttribute="trailing" constant="143" id="TcR-SE-FRZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4UJ-OE-ZYF" secondAttribute="trailing" constant="166" id="Wjm-7e-Dqx"/>
                             <constraint firstItem="nIg-BG-Vsj" firstAttribute="top" secondItem="4UJ-OE-ZYF" secondAttribute="bottom" constant="12" id="ZMS-hg-PPV"/>
+                            <constraint firstItem="BeJ-c1-gKN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="aA7-z1-eqT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nIg-BG-Vsj" secondAttribute="bottom" constant="15" id="b6r-h0-OzE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BeJ-c1-gKN" secondAttribute="trailing" constant="87" id="ldb-Qh-7D9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
