@@ -119,7 +119,7 @@ class ViewController: UIViewController {
             let statisticsVC = segue.destination as? StatisticsViewController
             statisticsVC?.vc = self
             statisticsVC?.duration = Date().timeIntervalSince(startTime!)
-            
+            statisticsVC?.totalWords = textView.text.split(separator: " ").count
         }
     }
 }

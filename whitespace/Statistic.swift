@@ -41,6 +41,11 @@ class Statistic: NSObject {
         return 0
     }
     
+    func overallScore() -> Float {
+        // Override in subclasses
+        return 0
+    }
+    
     func shouldAlert() -> Bool {
         return score() >= threshold
     }
@@ -60,6 +65,16 @@ class MeanFloatStatistic: Statistic {
         }
         return total / Float(samples.count)
     }
+    
+    override func overallScore() -> Float {
+        var total: Float = 0.0
+        for sample in allSamples {
+            total += sample as? Float ?? 0
+        }
+        return total / Float(allSamples.count)
+    }
+    
+    
 }
 
 class DeviationFloatStatistic: Statistic {
@@ -77,6 +92,21 @@ class DeviationFloatStatistic: Statistic {
             v += (sampleF-mean)*(sampleF-mean)
         }
         return v / (Float(samples.count) - 1)
+    }
+    
+    override func overallScore() -> Float {
+        var total: Float = 0.0
+        for sample in allSamples {
+            total += sample as? Float ?? 0
+        }
+        let mean = total / Float(allSamples.count)
+        
+        var v: Float = 0.0
+        for sample in allSamples {
+            let sampleF = sample as? Float ?? mean
+            v += (sampleF-mean)*(sampleF-mean)
+        }
+        return v / (Float(allSamples.count) - 1)
     }
     
 }
