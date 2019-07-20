@@ -118,7 +118,7 @@ extension ViewController: SensorDispatchHandler {
     internal func receivedAccelerometer(vector: Vector, accuracy: VectorAccuracy, timestamp: SensorTimestamp) {
         if isRecording {
             // .sway
-            let target = Metric.sway.target as? Vector ?? Vector(0, 0, 0)
+            let target = Metric.sway.target as? Vector ?? Vector(0, 0, -1)
             let dist = simd_distance_squared(vector, target)
             manager.addSample(Float(dist), To: .sway)
         }

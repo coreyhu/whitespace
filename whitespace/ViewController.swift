@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var blacklist: [String] = ["like", "actually", "you know", "damn"]
     var blacklistCount: Int = 0
     
+    var wordCount: Int = 0
+    var lastTextUpdate: Date = Date()
+    
     var enabledMetrics: [Metric] = [.headLevel, .speakingRate, .sway]
     
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
