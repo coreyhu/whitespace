@@ -88,6 +88,7 @@ extension ViewController: SFSpeechRecognizerDelegate {
                         self.wordCount = newWordCount
                         self.lastTextUpdate = now
                     }
+                    
                 }
                 
                 var count = 0

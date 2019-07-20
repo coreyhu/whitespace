@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var beepSeq: [String] = ["center_beep", "left_beep", "center_beep", "right_beep"]
+    var beepIndex: Int = 0
+    var beepTimer: Timer?
+    
     var blacklist: [String] = ["like", "actually", "you know", "damn"]
     var blacklistCount: Int = 0
     
@@ -61,8 +65,14 @@ class ViewController: UIViewController {
                 manager.clearAll()
                 blacklistCount = 0
                 startTime = Date()
+                beepTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(25), repeats: true, block: { _ in
+                    self.playAudio(filename: self.beepSeq[self.beepIndex])
+                    self.beepIndex = (self.beepIndex + 1) % self.beepSeq.count
+                })
+                playAudio(filename: "center_beep")
                 alert(text: "Recording")
             } else {
+                beepTimer?.invalidate()
                 alert(text: "Stopped Recording")
                 self.performSegue(withIdentifier: "SummarySegue", sender: self)
             }
@@ -136,6 +146,7 @@ extension ViewController: AVAudioPlayerDelegate {
     }
     
     func playAudio(filename: String) {
+        print("Playing: \(filename)")
         let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: "mp3")!)
         do {
             try audioPlayer = AVAudioPlayer(contentsOf: url)

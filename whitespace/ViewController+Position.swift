@@ -15,10 +15,10 @@ extension ViewController {
     
     @IBAction func connectToDevice() {
         if isConnected && session != nil {
+            isConnected = false
             stopListeningForGestures()
             session.close()
             session = nil
-            isConnected = false
             return
         }
         
