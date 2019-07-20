@@ -9,10 +9,12 @@
 import UIKit
 import AVKit
 import AVFoundation
+import BoseWearable
 
 enum Metric {
     case speakingRate
     case headLevel
+    case sway
     case blacklistRate
     case none
     
@@ -22,6 +24,8 @@ enum Metric {
             return "Speaking Rate"
         case .headLevel:
             return "Head Level"
+        case .sway:
+            return "Sway"
         case .blacklistRate:
             return "Blacklist Rate"
         default:
@@ -35,6 +39,8 @@ enum Metric {
             return MeanFloatStatistic(len: 100, th: 150)
         case .headLevel:
             return MeanFloatStatistic(len: 100, th: 0.4)
+        case .sway:
+            return MeanFloatStatistic(len: 500, th: 1)
         case .blacklistRate:
             return MeanFloatStatistic(len: 0, th: 1)
         default:
@@ -48,6 +54,8 @@ enum Metric {
             return 0
         case .headLevel:
             return 0
+        case .sway:
+            return Vector(0, 0, 0)
         case .blacklistRate:
             return 0
         default:
@@ -58,7 +66,7 @@ enum Metric {
 
 class CaptureManager: NSObject {
     
-    static var timeout = TimeInterval(10)
+    static var timeout = TimeInterval(5)
     
     var lastAlert: Date
     
@@ -99,7 +107,7 @@ class CaptureManager: NSObject {
     func alert(_ metric: Metric, statistic: Statistic) {
         // TODO
         if Date().timeIntervalSince(lastAlert) >= CaptureManager.timeout {
-            print("Alert")
+            print("Alert: \(metric)")
             statistic.clear()
             vc?.alert(text: metric.toString())
             lastAlert = Date()
