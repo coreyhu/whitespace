@@ -119,7 +119,6 @@ extension ViewController: SFSpeechRecognizerDelegate {
         }
         
         audioEngine.prepare()
-        startTime = Date()
         try audioEngine.start()
         textView.text = "(Go ahead, I'm listening)"
     }
