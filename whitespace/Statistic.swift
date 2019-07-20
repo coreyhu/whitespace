@@ -58,9 +58,7 @@ class MeanFloatStatistic: Statistic {
         for sample in samples {
             total += sample as? Float ?? 0
         }
-        let mean = total / Float(samples.count)
-        print("\(mean)")
-        return mean
+        return total / Float(samples.count)
     }
 }
 
