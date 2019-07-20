@@ -68,6 +68,8 @@ class CaptureManager: NSObject {
     
     static var timeout = TimeInterval(5)
     var lastAlert: Date
+    var queue: Set<Metric>
+    
     var statistics: [Metric: Statistic]
     var vc: ViewController?
     
@@ -77,6 +79,7 @@ class CaptureManager: NSObject {
             statistics[metric] = metric.statistic()
         }
         
+        queue = []
         lastAlert = Date()
     }
     
@@ -85,6 +88,7 @@ class CaptureManager: NSObject {
             statistic.clearSamples()
         }
         
+        queue = []
         lastAlert = Date()
     }
     
@@ -102,12 +106,15 @@ class CaptureManager: NSObject {
     }
     
     func alert(_ metric: Metric, statistic: Statistic) {
-        // TODO
+        queue.insert(metric)
         if Date().timeIntervalSince(lastAlert) >= CaptureManager.timeout {
-            print("Alert: \(metric)")
-            statistic.clear()
-            vc?.alert(text: metric.toString())
-            lastAlert = Date()
+            for metric in queue {
+                print("Alert: \(metric)")
+                statistics[metric]?.clear()
+                vc?.alert(text: metric.toString())
+                lastAlert = Date()
+            }
+            queue = []
         }
     }
     
