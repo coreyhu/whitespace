@@ -14,6 +14,8 @@ class StatisticsViewController: UIViewController {
     @IBOutlet var headLevelScoreText : UITextField!
     @IBOutlet var blacklistScoreText : UITextField!
     
+    @IBOutlet var overallScoreText : UITextField!
+    
     let metrics = [Metric.headLevel, Metric.speakingRate]
     var vc: ViewController?
     
