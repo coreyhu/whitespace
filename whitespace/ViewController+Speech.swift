@@ -58,13 +58,8 @@ extension ViewController: SFSpeechRecognizerDelegate {
             self.recognitionTask = nil
         }
         
-        let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(AVAudioSession.Category.record)
-        try audioSession.setMode(AVAudioSession.Mode.measurement)
-        try audioSession.setActive(true)
-        
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
-        recognitionRequest?.contextualStrings = ["Ummm", "Uhhh", "Umm uhh", "uhm", "ahh", "Ooga Booga"]
+        recognitionRequest?.contextualStrings = blacklist
         
         let inputNode = audioEngine.inputNode
         guard let recognitionRequest = recognitionRequest else {
@@ -80,7 +75,16 @@ extension ViewController: SFSpeechRecognizerDelegate {
             var isFinal = false
             
             if let result = result {
-                self.textView.text = result.bestTranscription.formattedString
+                var count = 0
+                let text = result.bestTranscription.formattedString
+                for phrase in self.blacklist {
+                    count += text.components(separatedBy: phrase).count - 1
+                }
+                if count > self.blacklistCount {
+                    self.manager.beep()
+                }
+                self.blacklistCount = count
+                self.textView.text = text
                 isFinal = result.isFinal
             }
             
@@ -126,17 +130,7 @@ extension ViewController: SFSpeechRecognizerDelegate {
             recordButton.setTitle("Stopping", for: .disabled)
         } else {
             try! startAudioRecording()
-            toggleAudioNotification()
             recordButton.setTitle("Stop recording", for: [])
-        }
-    }
-    
-    func toggleAudioNotification() {
-        if node.hasActions {
-            node.removeAllActions()
-        } else {
-            node.position = SCNVector3(0, 0, -0.5)
-            node.runAction(actionSequence)
         }
     }
 }

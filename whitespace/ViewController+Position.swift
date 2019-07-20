@@ -145,6 +145,7 @@ extension ViewController: SensorDispatchHandler {
         print("Gesture: \(type)")
         if type == .input {
             recordButtonTapped()
+            playAudio(filename: "ooga_booga")
         }
     }
 }
@@ -167,5 +168,6 @@ extension ViewController: WearableDeviceSessionDelegate {
     func session(_ session: WearableDeviceSession, didCloseWithError error: Error?) {
         // The session was closed, possibly due to an error.
         print("Session closed")
+        isConnected = false
     }
 }

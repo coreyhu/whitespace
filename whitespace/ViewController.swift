@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet var recordButton : UIButton!
     @IBOutlet weak var connectButton: UIButton!
     
+    var blacklist: [String] = ["like", "actually", "you know", "damn"]
+    var blacklistCount: Int = 0
+    
     var enabledMetrics: [Metric] = []
     
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
@@ -27,6 +30,8 @@ class ViewController: UIViewController {
     
     var session: (WearableDeviceSession)!
     var device: WearableDevice!
+    
+    var audioPlayer: AVAudioPlayer?
     
     // We create the SensorDispatch without any reference to a session or a device.
     // We provide a queue on which the sensor data events are dispatched on.
@@ -43,23 +48,26 @@ class ViewController: UIViewController {
     
     var isRecording = false {
         didSet {
+            UIView.animate(withDuration: 0.5) {
+                self.navigationItem.title = self.isRecording ? "Recording" : ""
+            }
+            
             self.navigationItem.rightBarButtonItem?.isEnabled = !isRecording
             if isRecording {
                 manager.clearAll()
+                blacklistCount = 0
             }
         }
     }
-    
-    @IBOutlet var scene : SCNView!
-    let audioSource = SCNAudioSource(fileNamed: "ooga_booga.mp3")!
-    var actionSequence : SCNAction!
-    let node = SCNNode()
-    
     
     var isConnected = false {
         didSet {
             connectButton.setTitle(isConnected ? "Disconnect" : "Connect", for: [])
             recordButton.isEnabled = isConnected
+            if !isConnected && isRecording {
+                toggleRecording()
+                isRecording = false
+            }
         }
     }
     
@@ -75,48 +83,22 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            print("audioSession properties weren't set because of an error.")
-        }
-        
         isRecording = false
         isConnected = false
         
-        audioSource.isPositional = true
-        audioSource.volume = 10
-        audioSource.load()
-        
-        let playAudio = SCNAction.playAudio(audioSource, waitForCompletion: true)
-        
-        let waitActionLong = SCNAction.wait(duration: 45)
-        let waitActionShort = SCNAction.wait(duration: 20)
-        let moveLeft = SCNAction.move(to: SCNVector3(-1, 0, -1), duration: 2)
-        let moveMiddle = SCNAction.move(to: SCNVector3(0, 0, -1), duration: 5)
-        let moveRight = SCNAction.move(to: SCNVector3(1, 0, -1), duration: 2)
-        let sequence = SCNAction.sequence([playAudio,
-                                           playAudio,
-                                           moveMiddle,
-                                           playAudio,
-                                           waitActionLong,
-                                           moveLeft,
-                                           playAudio,
-                                           waitActionShort,
-                                           moveMiddle,
-                                           playAudio,
-                                           waitActionLong,
-                                           moveRight,
-                                           playAudio,
-                                           waitActionShort])
-        let repeatForever = SCNAction.repeatForever(sequence)
-        actionSequence = repeatForever
-        
+        do {
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(AVAudioSession.Category.playAndRecord, options: .allowBluetooth)
+            try audioSession.setMode(AVAudioSession.Mode.default)
+            try audioSession.setActive(true)
+        } catch {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         manager = CaptureManager(metrics: enabledMetrics)
+        manager.vc = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,6 +106,29 @@ class ViewController: UIViewController {
             let settingsVC = segue.destination as? SettingsViewController
             settingsVC?.vc = self
         }
+    }
+}
+
+extension ViewController: AVAudioPlayerDelegate {
+    
+    func alert(text: String) {
+        let synth = AVSpeechSynthesizer()
+        synth.stopSpeaking(at: .immediate)
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        synth.speak(utterance)
+    }
+    
+    func playAudio(filename: String) {
+        let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: filename, ofType: "mp3")!)
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: url)
+            audioPlayer?.delegate = self
+            audioPlayer?.prepareToPlay()
+        } catch let error as NSError {
+            print("audioPlayer error \(error.localizedDescription)")
+        }
+        audioPlayer!.play()
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 
 enum Metric {
@@ -56,6 +57,8 @@ class CaptureManager: NSObject {
     
     var statistics: [Metric: Statistic]
     
+    var vc: ViewController?
+    
     init(metrics: [Metric]) {
         statistics = [:]
         for metric in metrics {
@@ -81,22 +84,19 @@ class CaptureManager: NSObject {
         }
     }
     
+    func beep() {
+        print("Beep")
+        vc?.playAudio(filename: "ooga_booga")
+    }
+    
     func alert(_ metric: Metric, statistic: Statistic) {
         // TODO
         if Date().timeIntervalSince(lastAlert) >= CaptureManager.timeout {
             print("Alert")
             statistic.clear()
-            playMessage(text: metric.toString())
+            vc?.alert(text: metric.toString())
             lastAlert = Date()
         }
-    }
-    
-    func playMessage(text: String) {
-        let synth = AVSpeechSynthesizer()
-        synth.stopSpeaking(at: .immediate)
-        let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        synth.speak(utterance)
     }
     
 }
