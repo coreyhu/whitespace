@@ -18,6 +18,7 @@
 		0FDA320822E3440800CD730A /* left_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FDA320522E3440700CD730A /* left_beep.mp3 */; };
 		0FDA320922E3440800CD730A /* right_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FDA320622E3440700CD730A /* right_beep.mp3 */; };
 		0FDA320A22E3440800CD730A /* center_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0FDA320722E3440800CD730A /* center_beep.mp3 */; };
+		0FDA320D22E346DB00CD730A /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDA320C22E346DB00CD730A /* StatisticsViewController.swift */; };
 		1326138522E2EAA900DA05AB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1326138422E2EAA900DA05AB /* SettingsViewController.swift */; };
 		1326138D22E32EDF00DA05AB /* ooga_booga.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1326138C22E32EDF00DA05AB /* ooga_booga.mp3 */; };
 		13E3CF0322E2B3DB00CBD6D6 /* ViewController+Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */; };
@@ -52,6 +53,7 @@
 		0FDA320522E3440700CD730A /* left_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = left_beep.mp3; sourceTree = "<group>"; };
 		0FDA320622E3440700CD730A /* right_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = right_beep.mp3; sourceTree = "<group>"; };
 		0FDA320722E3440800CD730A /* center_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = center_beep.mp3; sourceTree = "<group>"; };
+		0FDA320C22E346DB00CD730A /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		1326138422E2EAA900DA05AB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1326138C22E32EDF00DA05AB /* ooga_booga.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ooga_booga.mp3; sourceTree = "<group>"; };
 		13E3CF0222E2B3DB00CBD6D6 /* ViewController+Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Speech.swift"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				0FDA320322E2FE0200CD730A /* Statistic.swift */,
 				1326138422E2EAA900DA05AB /* SettingsViewController.swift */,
 				0F0DA5FA22E29C650060EAED /* Main.storyboard */,
+				0FDA320C22E346DB00CD730A /* StatisticsViewController.swift */,
 				0F0DA5FF22E29C660060EAED /* LaunchScreen.storyboard */,
 				0FDA320B22E3440C00CD730A /* Sounds */,
 				0F0DA5FD22E29C660060EAED /* Assets.xcassets */,
@@ -307,6 +310,7 @@
 				0F0DA5F922E29C650060EAED /* ViewController.swift in Sources */,
 				0F0DA5F722E29C650060EAED /* AppDelegate.swift in Sources */,
 				0FDA320222E2FB5D00CD730A /* CaptureManager.swift in Sources */,
+				0FDA320D22E346DB00CD730A /* StatisticsViewController.swift in Sources */,
 				13E3CF0322E2B3DB00CBD6D6 /* ViewController+Speech.swift in Sources */,
 				1326138522E2EAA900DA05AB /* SettingsViewController.swift in Sources */,
 				13E3CF0522E2B3FB00CBD6D6 /* ViewController+Position.swift in Sources */,

@@ -15,6 +15,7 @@ enum Metric {
     case speakingRate
     case headLevel
     case sway
+    case blacklistRate
     case none
     
     func toString() -> String {
@@ -25,6 +26,8 @@ enum Metric {
             return "Head Level"
         case .sway:
             return "Sway"
+        case .blacklistRate:
+            return "Blacklist Rate"
         default:
             return "Unknown"
         }
@@ -38,6 +41,8 @@ enum Metric {
             return MeanFloatStatistic(len: 100, th: 0.4)
         case .sway:
             return MeanFloatStatistic(len: 500, th: 1)
+        case .blacklistRate:
+            return MeanFloatStatistic(len: 0, th: 1)
         default:
             return MeanFloatStatistic(len: 0, th: 1)
         }
@@ -51,6 +56,8 @@ enum Metric {
             return 0
         case .sway:
             return Vector(0, 0, 0)
+        case .blacklistRate:
+            return 0
         default:
             return 0
         }
