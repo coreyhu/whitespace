@@ -31,8 +31,8 @@ class ViewController: UIViewController {
     var session: (WearableDeviceSession)!
     var device: WearableDevice!
     
-    var startTime : Date
-    var endTime : Date
+//    var startTime : Date
+//    var endTime : Date
     
     
     var audioPlayer: AVAudioPlayer?
