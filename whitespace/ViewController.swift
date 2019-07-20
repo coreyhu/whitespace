@@ -31,8 +31,7 @@ class ViewController: UIViewController {
     var session: (WearableDeviceSession)!
     var device: WearableDevice!
     
-//    var startTime : Date
-//    var endTime : Date
+    var startTime : Date?
     
     
     var audioPlayer: AVAudioPlayer?
@@ -116,6 +115,7 @@ class ViewController: UIViewController {
         } else if segue.identifier == "SummarySegue" {
             let statisticsVC = segue.destination as? StatisticsViewController
             statisticsVC?.vc = self
+            statisticsVC?.duration = DateInterval(start: startTime, end: Date())
             
         }
     }
