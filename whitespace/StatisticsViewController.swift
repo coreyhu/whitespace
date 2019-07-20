@@ -16,8 +16,12 @@ class StatisticsViewController: UIViewController {
     
     @IBOutlet var overallScoreText : UILabel!
     
+    @IBOutlet var durationText : UITextField!
+    
     let metrics = [Metric.headLevel, Metric.speakingRate]
     var vc: ViewController?
+    
+    var duration: TimeInterval?
     
     @IBAction func back() {
         navigationController?.popViewController(animated: true)
@@ -32,20 +36,26 @@ class StatisticsViewController: UIViewController {
     func loadStatistics() {
         let sessionStats = vc?.manager.statistics
         
+        durationText.text = "\(duration ?? 0)"
+        
         for key in metrics {
             print(key)
-            let metric = sessionStats?[key]?.score()
+            let metricValue = sessionStats?[key]?.score()
             
             switch key {
             case Metric.speakingRate:
-                speakingRateScoreText.text = "\(metric ?? -1)"
+                speakingRateScoreText.text = "\(metricValue ?? -1)"
             case Metric.headLevel:
-                headLevelScoreText.text = "\(metric ?? -1)"
+                headLevelScoreText.text = "\(metricValue ?? -1)"
             case Metric.blacklistRate:
-                blacklistScoreText.text = "\(metric ?? -1)"
+                blacklistScoreText.text = "\(metricValue ?? -1)"
             default: break
             }
         }
+    }
+    
+    func overallScore() {
+        
     }
     
     

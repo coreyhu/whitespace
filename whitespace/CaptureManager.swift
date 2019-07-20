@@ -67,11 +67,8 @@ enum Metric {
 class CaptureManager: NSObject {
     
     static var timeout = TimeInterval(5)
-    
     var lastAlert: Date
-    
     var statistics: [Metric: Statistic]
-    
     var vc: ViewController?
     
     init(metrics: [Metric]) {
