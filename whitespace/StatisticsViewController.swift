@@ -59,7 +59,7 @@ class StatisticsViewController: UIViewController {
             }
         }
         
-        wordCountText.text = totalWords
+        wordCountText.text = "\(totalWords ?? 0)"
         
         overallScore = Double(round(100*overallScore)/10000)
         overallScoreText.text = "\(overallScore)"
