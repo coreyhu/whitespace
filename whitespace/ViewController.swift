@@ -37,15 +37,23 @@ class ViewController: UIViewController {
     
     var isRecording = false
     
+    var isConnected = false {
+        didSet {
+            connectButton.setTitle(isConnected ? "Disconnect" : "Connect", for: [])
+            recordButton.isEnabled = isConnected
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        recordButton.isEnabled = false
+        isRecording = false
+        isConnected = false
     }
     
     @IBAction func recordButtonTapped() {
-        if device != nil {
+        if isConnected {
             isRecording = !isRecording
             toggleSensors()
             toggleRecording()

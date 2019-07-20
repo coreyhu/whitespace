@@ -13,12 +13,20 @@ import BoseWearable
 extension ViewController {
     
     @IBAction func connectToDevice() {
+        if isConnected && session != nil {
+            session.close()
+            session = nil
+            isConnected = false
+            return
+        }
+        
         let sensorIntent = SensorIntent(sensors: Set.init(sensors), samplePeriods: [samplePeriod])
         
         BoseWearable.shared.startConnection(mode: .alwaysShow, sensorIntent: sensorIntent) { result in
             switch result {
             case .success(let session):
                 self.setupSession(session)
+                self.isConnected = true
                 
             case .failure(let error):
                 print("Error: \(error)")
