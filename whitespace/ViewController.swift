@@ -60,6 +60,7 @@ class ViewController: UIViewController {
             if isRecording {
                 manager.clearAll()
                 blacklistCount = 0
+                startTime = Date()
                 alert(text: "Recording")
             } else {
                 alert(text: "Stopped Recording")
@@ -118,7 +119,7 @@ class ViewController: UIViewController {
         } else if segue.identifier == "SummarySegue" {
             let statisticsVC = segue.destination as? StatisticsViewController
             statisticsVC?.vc = self
-            statisticsVC?.duration = DateInterval(start: startTime, end: Date())
+            statisticsVC?.duration = Date().timeIntervalSince(startTime!)
             
         }
     }
