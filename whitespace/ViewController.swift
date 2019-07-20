@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet var textView : UITextView!
     @IBOutlet var recordButton : UIButton!
     @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     var blacklist: [String] = ["like", "actually", "you know", "damn"]
     var blacklistCount: Int = 0
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
     var wordCount: Int = 0
     var lastTextUpdate: Date = Date()
     
-    var enabledMetrics: [Metric] = [.headLevel, .speakingRate, .sway]
+    var enabledMetrics: [Metric] = [.headLevel, .speakingRate, .blacklistRate]
     
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
     let samplePeriod: SamplePeriod = ._20ms
@@ -128,7 +129,7 @@ extension ViewController: AVAudioPlayerDelegate {
     
     func alert(text: String) {
         let synth = AVSpeechSynthesizer()
-        synth.stopSpeaking(at: .immediate)
+        //synth.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synth.speak(utterance)

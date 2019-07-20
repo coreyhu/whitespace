@@ -143,7 +143,10 @@ extension ViewController: SensorDispatchHandler {
     
     /// Indicates that a game rotation reading has been received.
     func receivedGameRotation(quaternion: Quaternion, timestamp: SensorTimestamp) {
-        
+        // Arbitrary place to reload tableview data
+        if isRecording {
+            tableView.reloadData()
+        }
     }
     
     /// Indicates that a gesture has been received.

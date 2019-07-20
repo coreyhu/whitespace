@@ -51,15 +51,39 @@
                                     <constraint firstAttribute="height" constant="87" id="T2L-KW-qcu"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5EC-X0-p4E">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DebugCell" id="5EC-X0-p4E">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5EC-X0-p4E" id="N4G-Ek-Mha">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metric" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxo-KV-dm1">
+                                                    <rect key="frame" x="8" y="11.5" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccz-a2-pZW">
+                                                    <rect key="frame" x="324" y="11.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ccz-a2-pZW" firstAttribute="centerY" secondItem="N4G-Ek-Mha" secondAttribute="centerY" id="GrI-ZV-nev"/>
+                                                <constraint firstItem="Vxo-KV-dm1" firstAttribute="leading" secondItem="N4G-Ek-Mha" secondAttribute="leadingMargin" id="LHx-gj-D6P"/>
+                                                <constraint firstItem="Vxo-KV-dm1" firstAttribute="centerY" secondItem="ccz-a2-pZW" secondAttribute="centerY" id="V4g-tw-CmV"/>
+                                                <constraint firstItem="ccz-a2-pZW" firstAttribute="trailing" secondItem="N4G-Ek-Mha" secondAttribute="trailingMargin" id="eR0-8b-fGj"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="iv9-Yn-RYe"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="MX0-g0-gby"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,6 +114,7 @@
                     <connections>
                         <outlet property="connectButton" destination="nIg-BG-Vsj" id="M5B-GL-1ZQ"/>
                         <outlet property="recordButton" destination="4UJ-OE-ZYF" id="ifN-Pp-Lvd"/>
+                        <outlet property="tableView" destination="Jtl-fH-GHQ" id="Cq7-hR-jKX"/>
                         <outlet property="textView" destination="7Xh-Gq-OPS" id="iGV-Hr-ZGD"/>
                         <segue destination="z86-dg-6Rl" kind="show" identifier="SummarySegue" id="s13-9c-vTY"/>
                     </connections>
@@ -194,6 +219,9 @@
                     <navigationItem key="navigationItem" title="Overall Score" id="gJ8-a3-Bp9">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="back" id="SQK-3b-ytK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="back" destination="z86-dg-6Rl" id="HEl-fO-wxA"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
