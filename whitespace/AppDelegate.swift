@@ -6,6 +6,8 @@
 //  Copyright © 2019 Corey Hu. All rights reserved.
 //
 
+import BLECore
+import BoseWearable
 import UIKit
 
 @UIApplicationMain
@@ -16,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        BoseWearable.configure()
         return true
     }
 

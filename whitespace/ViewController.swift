@@ -17,23 +17,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func connectToDevice() {
+        setupDevice()
+    }
+    
     @IBAction func startRecording() {
         initSpeech();
         initPosition();
-    }
-}
-
-extension ViewController {
-    
-    func initSpeech() {
-        
-    }
-}
-
-extension ViewController {
-    
-    func initPosition() {
-        
     }
 }
 
