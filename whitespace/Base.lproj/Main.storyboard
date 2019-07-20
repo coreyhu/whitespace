@@ -137,13 +137,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blacklist Words Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4c-5N-u2B">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blacklist Words Rate" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4c-5N-u2B">
                                 <rect key="frame" x="58" y="252" width="133" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posture Performance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5J-hw-Tcb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posture Performance" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5J-hw-Tcb">
                                 <rect key="frame" x="54" y="297" width="137" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -167,7 +167,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaking Rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ad-oxu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WPM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r4-Ad-oxu">
                                 <rect key="frame" x="98" y="342" width="93" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -179,8 +179,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Db-qF-kQQ">
-                                <rect key="frame" x="93" y="387" width="98" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Db-qF-kQQ">
+                                <rect key="frame" x="83" y="387" width="108" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaS-ij-BuG">
+                                <rect key="frame" x="320" y="432" width="13" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIt-5T-7hb">
+                                <rect key="frame" x="113" y="432" width="78" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -198,12 +210,17 @@
                             <constraint firstItem="fXM-b4-Hm7" firstAttribute="centerY" secondItem="W5J-hw-Tcb" secondAttribute="centerY" id="KVA-W7-BK7"/>
                             <constraint firstItem="la6-aI-FPO" firstAttribute="trailing" secondItem="cbU-ZD-Gzh" secondAttribute="trailing" constant="80" id="M8v-kv-07u"/>
                             <constraint firstItem="cbU-ZD-Gzh" firstAttribute="centerY" secondItem="q4c-5N-u2B" secondAttribute="centerY" id="PEe-FB-ABM"/>
+                            <constraint firstItem="la6-aI-FPO" firstAttribute="trailing" secondItem="GaS-ij-BuG" secondAttribute="trailing" constant="81" id="WLH-R7-LJh"/>
                             <constraint firstItem="2r4-Ad-oxu" firstAttribute="leading" secondItem="la6-aI-FPO" secondAttribute="leading" constant="98" id="WgR-vc-k3N"/>
                             <constraint firstItem="2r4-Ad-oxu" firstAttribute="top" secondItem="W5J-hw-Tcb" secondAttribute="bottom" constant="28" id="XMV-qo-g9D"/>
                             <constraint firstItem="q4c-5N-u2B" firstAttribute="top" secondItem="sMR-ht-Xx7" secondAttribute="bottom" constant="37" id="aAa-7G-28m"/>
+                            <constraint firstItem="GaS-ij-BuG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MIt-5T-7hb" secondAttribute="trailing" constant="8" symbolic="YES" id="bFf-Qw-Nfu"/>
                             <constraint firstItem="2r4-Ad-oxu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="W5J-hw-Tcb" secondAttribute="trailing" id="cRl-bi-AOB"/>
                             <constraint firstItem="d32-wV-0IJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2r4-Ad-oxu" secondAttribute="trailing" constant="8" symbolic="YES" id="ctX-dn-uBo"/>
                             <constraint firstItem="jTP-Wf-cDo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Db-qF-kQQ" secondAttribute="trailing" constant="8" symbolic="YES" id="eaE-jG-P5j"/>
+                            <constraint firstItem="MIt-5T-7hb" firstAttribute="leading" secondItem="la6-aI-FPO" secondAttribute="leading" constant="113" id="enQ-sY-hlp"/>
+                            <constraint firstItem="GaS-ij-BuG" firstAttribute="centerY" secondItem="MIt-5T-7hb" secondAttribute="centerY" id="exQ-7t-y3L"/>
+                            <constraint firstItem="MIt-5T-7hb" firstAttribute="top" secondItem="8Db-qF-kQQ" secondAttribute="bottom" constant="28" id="iu4-Lr-FDK"/>
                             <constraint firstItem="fXM-b4-Hm7" firstAttribute="trailing" secondItem="cbU-ZD-Gzh" secondAttribute="trailing" id="jnH-xc-FFG"/>
                             <constraint firstItem="W5J-hw-Tcb" firstAttribute="top" secondItem="q4c-5N-u2B" secondAttribute="bottom" constant="28" id="ls2-dg-xd8"/>
                             <constraint firstItem="8Db-qF-kQQ" firstAttribute="trailing" secondItem="2r4-Ad-oxu" secondAttribute="trailing" id="mDk-vI-k6d"/>
@@ -230,6 +247,7 @@
                         <outlet property="headLevelScoreText" destination="fXM-b4-Hm7" id="A69-4A-r73"/>
                         <outlet property="overallScoreText" destination="sMR-ht-Xx7" id="NA9-7y-N4o"/>
                         <outlet property="speakingRateScoreText" destination="d32-wV-0IJ" id="DVm-GV-B5c"/>
+                        <outlet property="wordCountText" destination="GaS-ij-BuG" id="BaC-bH-6Mb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ski-qK-r6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
