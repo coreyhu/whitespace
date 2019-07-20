@@ -96,6 +96,7 @@ extension ViewController: SFSpeechRecognizerDelegate {
                     count += text.components(separatedBy: phrase).count - 1
                 }
                 if count > self.blacklistCount {
+                    print("Blacklist")
                     self.manager.addSample(1, To: Metric.blacklistRate)
                     self.manager.beep()
                 }
@@ -130,6 +131,7 @@ extension ViewController: SFSpeechRecognizerDelegate {
     
     public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
+            print("Speech Recognizer availability changed")
             recordButton.isEnabled = true
             recordButton.setTitle("Start Recording", for: [])
         } else {

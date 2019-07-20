@@ -16,6 +16,7 @@ enum Metric {
     case headLevel
     case sway
     case blacklistRate
+    case eyeGuide
     case none
     
     func toString() -> String {
@@ -28,6 +29,8 @@ enum Metric {
             return "Sway"
         case .blacklistRate:
             return "Blacklist Rate"
+        case .eyeGuide:
+            return "Eye Guide"
         default:
             return "Unknown"
         }
@@ -101,7 +104,6 @@ class CaptureManager: NSObject {
     }
     
     func beep() {
-        print("Beep")
         vc?.playAudio(filename: "center_beep")
     }
     

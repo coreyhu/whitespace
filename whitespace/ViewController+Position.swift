@@ -155,7 +155,17 @@ extension ViewController: SensorDispatchHandler {
         if type == .input {
             recordButtonTapped()
         }
+        if type == .headShake {
+            playCue()
+        }
     }
+    
+    func playCue() {
+        print("Play Cue")
+        let cues = ["United Fruit Company", "Enron", "Qualcomm"]
+        alert(text: cues.randomElement()!)
+    }
+    
 }
 
 extension ViewController: WearableDeviceSessionDelegate {

@@ -65,11 +65,12 @@ class ViewController: UIViewController {
                 manager.clearAll()
                 blacklistCount = 0
                 startTime = Date()
-                beepTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(25), repeats: true, block: { _ in
-                    self.playAudio(filename: self.beepSeq[self.beepIndex])
-                    self.beepIndex = (self.beepIndex + 1) % self.beepSeq.count
-                })
-                playAudio(filename: "center_beep")
+                if enabledMetrics.contains(.eyeGuide) {
+                    beepTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(25), repeats: true, block: { _ in
+                        self.playAudio(filename: self.beepSeq[self.beepIndex])
+                        self.beepIndex = (self.beepIndex + 1) % self.beepSeq.count
+                    })
+                }
                 alert(text: "Recording")
             } else {
                 beepTimer?.invalidate()

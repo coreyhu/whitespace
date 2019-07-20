@@ -52,12 +52,14 @@ class StatisticsViewController: UIViewController {
                 overallScore += Double((metricValue ?? 0))
                 headLevelScoreText.text = "\(metricValue ?? -1)"
             case Metric.blacklistRate:
-                let val = sessionStats![key]!.allSamples.count / totalWords!
-                overallScore += Double((val) * 10)
-                blacklistScoreText.text = "\(val)"
+                break
             default: break
             }
         }
+        
+        let blacklistRate = sessionStats![Metric.blacklistRate]!.allSamples.count / totalWords!
+        overallScore += Double((blacklistRate) * 10)
+        blacklistScoreText.text = "\(blacklistRate)"
         
         wordCountText.text = "\(totalWords ?? 0)"
         
