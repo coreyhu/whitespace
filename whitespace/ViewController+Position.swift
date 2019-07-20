@@ -29,6 +29,7 @@ extension ViewController {
             case .success(let session):
                 self.setupSession(session)
                 self.isConnected = true
+                self.initAudio()
                 
             case .failure(let error):
                 print("Error: \(error)")
@@ -115,7 +116,12 @@ extension ViewController {
 extension ViewController: SensorDispatchHandler {
     /// Indicates that an accelerometer reading has been received.
     internal func receivedAccelerometer(vector: Vector, accuracy: VectorAccuracy, timestamp: SensorTimestamp) {
-        //print("Acc: \(vector)")
+        if isRecording {
+            // .sway
+            let target = Metric.sway.target as? Vector ?? Vector(0, 0, 0)
+            let dist = simd_distance_squared(vector, target)
+            manager.addSample(Float(dist), To: .sway)
+        }
     }
     
     /// Indicates that a gyroscope reading has been received.

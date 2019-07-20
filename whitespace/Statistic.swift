@@ -49,11 +49,29 @@ class Statistic: NSObject {
 class MeanFloatStatistic: Statistic {
     
     override func score() -> Float {
-        
         var total: Float = 0.0
         for sample in samples {
             total += sample as? Float ?? 0
         }
         return total / Float(samples.count)
     }
+}
+
+class DeviationFloatStatistic: Statistic {
+    
+    override func score() -> Float {
+        var total: Float = 0.0
+        for sample in samples {
+            total += sample as? Float ?? 0
+        }
+        let mean = total / Float(samples.count)
+        
+        var v: Float = 0.0
+        for sample in samples {
+            let sampleF = sample as? Float ?? mean
+            v += (sampleF-mean)*(sampleF-mean)
+        }
+        return v / (Float(samples.count) - 1)
+    }
+    
 }

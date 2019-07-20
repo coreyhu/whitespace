@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     var blacklist: [String] = ["like", "actually", "you know", "damn"]
     var blacklistCount: Int = 0
     
-    var enabledMetrics: [Metric] = []
+    var enabledMetrics: [Metric] = [.headLevel, .speakingRate, .sway]
     
     let sensors: [SensorType] = [.accelerometer, .rotation, .gyroscope, .gameRotation]
     let samplePeriod: SamplePeriod = ._20ms
@@ -48,9 +48,7 @@ class ViewController: UIViewController {
     
     var isRecording = false {
         didSet {
-            UIView.animate(withDuration: 0.5) {
-                self.navigationItem.title = self.isRecording ? "Recording" : ""
-            }
+            self.navigationItem.title = self.isRecording ? "Recording" : ""
             
             self.navigationItem.rightBarButtonItem?.isEnabled = !isRecording
             if isRecording {
@@ -82,13 +80,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        isRecording = false
-        isConnected = false
-        
+    func initAudio() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
             try audioSession.setCategory(AVAudioSession.Category.playAndRecord, options: .allowBluetooth)
@@ -97,6 +89,14 @@ class ViewController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
+        isRecording = false
+        isConnected = false
     }
     
     override func viewWillAppear(_ animated: Bool) {

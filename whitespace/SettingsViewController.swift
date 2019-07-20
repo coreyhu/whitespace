@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var vc: ViewController!
     
-    var metrics: [Metric] = [.speakingRate, .headLevel]
+    var metrics: [Metric] = [.speakingRate, .headLevel, .sway]
     
     override func viewDidLoad() {
         super.viewDidLoad()
