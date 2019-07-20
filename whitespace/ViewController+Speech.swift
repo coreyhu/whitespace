@@ -12,14 +12,6 @@ import Speech
 
 extension ViewController: SFSpeechRecognizerDelegate {
     
-    func setupDevice() {
-        
-    }
-    
-    func initSpeech() {
-        
-    }
-    
     override public func viewDidAppear(_ animated: Bool) {
         // Configure the SFSpeechRecognizer object already
         // stored in a local member variable.
@@ -122,10 +114,8 @@ extension ViewController: SFSpeechRecognizerDelegate {
         }
     }
     
-    // MARK: Interface Builder actions
-    
-    @IBAction func recordButtonTapped() {
-        if audioEngine.isRunning {
+    func toggleRecording() {
+        if !isRecording {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             recordButton.isEnabled = false

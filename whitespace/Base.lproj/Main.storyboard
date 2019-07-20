@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIg-BG-Vsj">
-                                <rect key="frame" x="184" y="315" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="177.5" y="315" width="59" height="30"/>
+                                <state key="normal" title="Connect"/>
                                 <connections>
-                                    <action selector="startAudioRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0K-hS-ddE"/>
+                                    <action selector="connectToDevice" destination="BYZ-38-t0r" eventType="touchUpInside" id="K2K-fT-zFj"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-Gq-OPS">
@@ -40,27 +40,26 @@
                                 <rect key="frame" x="106" y="450" width="202" height="30"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
-                                    <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="sxR-m4-mpc"/>
+                                    <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="WDT-mD-33e"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Xh-Gq-OPS" secondAttribute="trailing" constant="69" id="0Hf-wF-M6e"/>
-                            <constraint firstItem="nIg-BG-Vsj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="184" id="D4g-Qz-Vkj"/>
+                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="top" secondItem="nIg-BG-Vsj" secondAttribute="bottom" constant="105" id="Jp7-af-TxU"/>
                             <constraint firstItem="7Xh-Gq-OPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="TQB-B3-xRm"/>
-                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="top" secondItem="nIg-BG-Vsj" secondAttribute="bottom" constant="105" id="YtZ-LT-ToK"/>
                             <constraint firstItem="4UJ-OE-ZYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106" id="aJz-zE-vFa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4UJ-OE-ZYF" secondAttribute="trailing" constant="106" id="eRa-0Z-5fo"/>
                             <constraint firstItem="7Xh-Gq-OPS" firstAttribute="top" secondItem="4UJ-OE-ZYF" secondAttribute="bottom" constant="77" id="nZv-7y-Kp3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Xh-Gq-OPS" secondAttribute="bottom" constant="177" id="nnd-gs-Iz1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nIg-BG-Vsj" secondAttribute="trailing" constant="184" id="v40-cU-WT9"/>
+                            <constraint firstItem="nIg-BG-Vsj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zA8-5e-4cD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="connectButton" destination="nIg-BG-Vsj" id="M5B-GL-1ZQ"/>
                         <outlet property="recordButton" destination="4UJ-OE-ZYF" id="ifN-Pp-Lvd"/>
-                        <outlet property="startButton" destination="nIg-BG-Vsj" id="LBd-AS-Tkv"/>
                         <outlet property="textView" destination="7Xh-Gq-OPS" id="iGV-Hr-ZGD"/>
                     </connections>
                 </viewController>
