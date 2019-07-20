@@ -53,7 +53,7 @@ class StatisticsViewController: UIViewController {
             default: break
             }
         }
-        
+        overallScore = Double(round(100*overallScore)/100)
         overallScoreText.text = "\(overallScore)"
         
     }
