@@ -15,6 +15,7 @@ class StatisticsViewController: UIViewController {
     @IBOutlet var blacklistScoreText : UILabel!
     @IBOutlet var overallScoreText : UILabel!
     @IBOutlet var durationText : UILabel!
+    @IBOutlet var wordCountText : UILabel!
     
     let metrics = [Metric.headLevel, Metric.speakingRate]
     var vc: ViewController?
@@ -57,6 +58,8 @@ class StatisticsViewController: UIViewController {
             default: break
             }
         }
+        
+        wordCountText.text = totalWords
         
         overallScore = Double(round(100*overallScore)/10000)
         overallScoreText.text = "\(overallScore)"
