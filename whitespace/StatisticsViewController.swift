@@ -13,10 +13,8 @@ class StatisticsViewController: UIViewController {
     @IBOutlet var speakingRateScoreText : UILabel!
     @IBOutlet var headLevelScoreText : UILabel!
     @IBOutlet var blacklistScoreText : UILabel!
-    
     @IBOutlet var overallScoreText : UILabel!
-    
-    @IBOutlet var durationText : UITextField!
+    @IBOutlet var durationText : UILabel!
     
     let metrics = [Metric.headLevel, Metric.speakingRate]
     var vc: ViewController?
@@ -35,7 +33,7 @@ class StatisticsViewController: UIViewController {
     
     func loadStatistics() {
         let sessionStats = vc?.manager.statistics
-        
+        var overallScore = 0.0
         durationText.text = "\(duration ?? 0)"
         
         for key in metrics {
@@ -44,14 +42,20 @@ class StatisticsViewController: UIViewController {
             
             switch key {
             case Metric.speakingRate:
+                overallScore += Double(((metricValue ?? 0) - 150) / 5)
                 speakingRateScoreText.text = "\(metricValue ?? -1)"
             case Metric.headLevel:
+                overallScore += Double((metricValue ?? 0))
                 headLevelScoreText.text = "\(metricValue ?? -1)"
             case Metric.blacklistRate:
+                overallScore += Double((metricValue ?? 0) / 5)
                 blacklistScoreText.text = "\(metricValue ?? -1)"
             default: break
             }
         }
+        
+        overallScoreText.text = "\(overallScore)"
+        
     }
     
     func overallScore() {

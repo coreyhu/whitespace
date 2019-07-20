@@ -51,7 +51,7 @@ enum Metric {
     var target: Any {
         switch self {
         case .speakingRate:
-            return 0
+            return 150
         case .headLevel:
             return 0
         case .sway:

@@ -36,7 +36,6 @@ class ViewController: UIViewController {
     
     var startTime : Date?
     
-    
     var audioPlayer: AVAudioPlayer?
     
     // We create the SensorDispatch without any reference to a session or a device.
