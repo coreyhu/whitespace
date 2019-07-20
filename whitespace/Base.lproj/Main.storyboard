@@ -18,15 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UJ-OE-ZYF">
-                                <rect key="frame" x="158" y="449" width="99" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="b7Z-jI-0Ir"/>
-                                    <constraint firstAttribute="width" constant="99" id="yph-jF-R4n"/>
-                                </constraints>
-                                <state key="normal" title="Record"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIg-BG-Vsj">
+                                <rect key="frame" x="184" y="315" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="sxR-m4-mpc"/>
+                                    <action selector="startAudioRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0K-hS-ddE"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Xh-Gq-OPS">
@@ -40,23 +36,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIg-BG-Vsj">
-                                <rect key="frame" x="184" y="315" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UJ-OE-ZYF">
+                                <rect key="frame" x="106" y="450" width="202" height="30"/>
+                                <state key="normal" title="Record"/>
                                 <connections>
-                                    <action selector="startAudioRecording" destination="BYZ-38-t0r" eventType="touchUpInside" id="F0K-hS-ddE"/>
+                                    <action selector="recordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="sxR-m4-mpc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Xh-Gq-OPS" secondAttribute="trailing" constant="69" id="0Hf-wF-M6e"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4UJ-OE-ZYF" secondAttribute="trailing" constant="157" id="74i-vX-6yf"/>
+                            <constraint firstItem="nIg-BG-Vsj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="184" id="D4g-Qz-Vkj"/>
                             <constraint firstItem="7Xh-Gq-OPS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="TQB-B3-xRm"/>
-                            <constraint firstItem="7Xh-Gq-OPS" firstAttribute="top" secondItem="4UJ-OE-ZYF" secondAttribute="bottom" constant="78" id="eni-xP-CjB"/>
+                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="top" secondItem="nIg-BG-Vsj" secondAttribute="bottom" constant="105" id="YtZ-LT-ToK"/>
+                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="106" id="aJz-zE-vFa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4UJ-OE-ZYF" secondAttribute="trailing" constant="106" id="eRa-0Z-5fo"/>
+                            <constraint firstItem="7Xh-Gq-OPS" firstAttribute="top" secondItem="4UJ-OE-ZYF" secondAttribute="bottom" constant="77" id="nZv-7y-Kp3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Xh-Gq-OPS" secondAttribute="bottom" constant="177" id="nnd-gs-Iz1"/>
-                            <constraint firstItem="4UJ-OE-ZYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="158" id="u4X-O8-Atm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nIg-BG-Vsj" secondAttribute="trailing" constant="184" id="v40-cU-WT9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
