@@ -108,6 +108,10 @@ class ViewController: UIViewController {
         if segue.identifier == "SettingsSegue" {
             let settingsVC = segue.destination as? SettingsViewController
             settingsVC?.vc = self
+        } else if segue.identifier == "SummarySegue" {
+            let statisticsVC = segue.destination as? StatisticsViewController
+            statisticsVC?.vc = self
+            
         }
     }
 }
