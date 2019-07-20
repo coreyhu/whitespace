@@ -98,7 +98,6 @@ extension ViewController: SFSpeechRecognizerDelegate {
                 
                 self.recordButton.isEnabled = true
                 self.recordButton.setTitle("Start Recording", for: [])
-                performSegue(withIdentifier: "SummarySegue", sender: self)
             }
         }
         

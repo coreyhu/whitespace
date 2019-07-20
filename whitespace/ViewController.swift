@@ -57,6 +57,7 @@ class ViewController: UIViewController {
                 alert(text: "Recording")
             } else {
                 alert(text: "Stopped Recording")
+                self.performSegue(withIdentifier: "SummarySegue", sender: self)
             }
         }
     }
